@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-search-bar',
@@ -7,7 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchBarComponent implements OnInit {
 
+// To flow the data from child to parent i.e main App-component
+  @Output() onSearchUser: EventEmitter<any> = new EventEmitter();
+  public inputInstaUser: string = '';
+  
+
   constructor() { }
+
+  public searchUser(){
+    this.onSearchUser.emit(this.inputInstaUser);
+    this.inputInstaUser = '';
+    
+  }
 
   ngOnInit(): void {
   }

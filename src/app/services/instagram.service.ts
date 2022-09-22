@@ -24,5 +24,4 @@ export class InstagramService {
     return this.httpClient.get(url);
   }
  
-  
 }
